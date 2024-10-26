@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trentry - Markdown Pastebin</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/obsidian.css">
+</head>
+<body>
+    <div id="wrapcenter">
+        <form id="wrapper" method="post">
+            <% if(typeof error != "undefined"){%> 
+                <p class="error"><%= error %></p>
+            <%} %>
+            <div id="btns">
+                <button type="button" class="btnup selectedbtn" option="edit">Edit</button>
+                <div class="seperator"></div>
+                <button type="button" class="btnup" option="preview">Preview</button>
+                <div class="seperator"></div>
+                <button type="button" class="btnup" option="how">How</button>
+            </div>
+            <div id="mainthing">
+                <textarea id="maintext" name="maintext" id=""><% if(typeof maintext != 'undefined'){%><%= maintext %><%} %></textarea>
+                <div id="preview"></div>
+            </div>
+            <div id="wrapperforinputs" style="
+            flex-direction: column;
+        ">
+                        <input type="text" name="editcode" id="customedit" value="" placeholder="Current edit code..." style="
+            width: min-content;
+        ">
+                    <div class="seperatory" style="
+            height: 8px;
+        "></div></div>
+            <div id="wrapperforinputs" >
+                <input id="submit" type="submit" value="Go!"></input><div class="seperatory"></div>
+                <div id="editandurl">
+                    <input type="text" name="neweditcode" id="newcustomedit" value="" placeholder="New edit code... (optional)">
+                    <div class="seperator"></div><div class="seperatory"></div>
+                    <input type="text" name="newurlcode" id="newcustomurl" value="" placeholder="New URL... (optional)">
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://markdown-it.github.io/markdown-it.js"></script>
+    <script src="/index.js"></script>
+</body>
+</html>

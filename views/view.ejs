@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trentry - Markdown Pastebin</title>
+    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/obsidian.css">
+</head>
+<body>
+    <div id="wrapcenter">
+        <div id="wrapper" action="/" method="post">
+            <% if(typeof error != "undefined"){%> 
+                <p class="error"><%= error %></p>
+            <%} %>
+
+            <% if(typeof success != "undefined"){
+                for(let i = 0; i < success.length; i++){
+                    %><p class="success"><%- success[i] %></p><%
+                }
+            } %>
+            <div id="btns">
+                <button type="button" class="btnup selectedbtn" option="view">View</button>
+                <div class="seperator"></div>
+                <button type="button" class="btnup" option="new">New</button>
+                <div class="seperator"></div>
+                <button type="button" class="btnup" option="editexisting">Edit</button>
+                <div class="seperator"></div>
+                <button type="button" class="btnup" option="raw">Raw</button>
+                
+            </div>
+            <div id="mainthing">
+                <div style="display: block;" id="preview"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://markdown-it.github.io/markdown-it.js"></script>
+    <script> const rawpastedata = <%- (JSON.stringify([rawpaste])).slice(1, -1) %>; </script>
+    <script src="/index.js"></script>
+</body>
+</html>
