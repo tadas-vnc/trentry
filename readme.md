@@ -25,7 +25,6 @@ https://files.offshore.cat/y7fJK22m.mp4
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/tadas-vnc/trentry.git
-   cd rentry-clone
    ```
 
 2. **Install Dependencies**
